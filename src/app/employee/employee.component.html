@@ -1,0 +1,120 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <h5 class="card-title">Add New Employee</h5>
+    <form
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+    <input type="hidden" name="id" [(ngModel)]="form.id"/>
+      <div class="form-group">
+        <label for="employeeId">Employee ID</label>
+        <input
+          type="text"
+          class="form-control"
+          name="employeeId"
+          [(ngModel)]="form.employeeId"
+          required
+          #employeeId="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="employeeId.errors && f.submitted"
+        >
+          Employee Id is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Employee Full Name</label>
+        <input
+          type="name"
+          class="form-control"
+          name="name"
+          [(ngModel)]="form.name"
+          required
+          minlength="4"
+          #name="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="name.errors && f.submitted"
+        >
+          <div *ngIf="name.errors.required">employee full name is required</div>
+         
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input
+          type="gender"
+          class="form-control"
+          name="gender"
+          [(ngModel)]="form.gender"
+          required
+          #gender="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="gender.errors && f.submitted"
+        >
+          <div *ngIf="gender.errors.required">gender is required</div>
+         
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="jobDescription">Job Description</label>
+        <input
+          type="jobDescription"
+          class="form-control"
+          name="jobDescription"
+          [(ngModel)]="form.jobDescription"
+          required
+          #jobDescription="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="jobDescription.errors && f.submitted"
+        >
+          <div *ngIf="jobDescription.errors.required">job description is required</div>
+         
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="salary">Salary</label>
+        <input
+          type="salary"
+          class="form-control"
+          name="salary"
+          [(ngModel)]="form.salary"
+          required
+          minlength="4"
+          #salary="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="salary.errors && f.submitted"
+        >
+          <div *ngIf="salary.errors.required">salary is required</div>
+         
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">
+          Submit
+        </button>
+      </div>
+    </form>
+   
+  </div>
+</div>
